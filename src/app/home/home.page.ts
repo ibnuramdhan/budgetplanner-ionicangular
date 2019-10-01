@@ -20,7 +20,7 @@ export class HomePage {
 
   resetForm() {
     this.enteredReason = '';
-    this.inputAmount = '';
+    this.inputAmount = null;
   }
 
   addExpense() {
