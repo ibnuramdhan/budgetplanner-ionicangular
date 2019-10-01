@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
   enteredReason = '';
-  inputAmount = '';
+  inputAmount: number;
+  amountList = [];
   expensesList = [];
+  totalAmount = 0;
 
   constructor() { }
 
@@ -23,10 +25,16 @@ export class HomePage {
 
   addExpense() {
     this.expensesList.push(this.enteredReason + ' : RM' + this.inputAmount);
+    this.amountList.push(this.inputAmount);
+    this.totalAmount += this.inputAmount;
+    this.resetForm();
   }
+
 
   removeItem(index) {
     this.expensesList.splice(index, 1);
+    this.totalAmount -= this.amountList[index];
+    this.amountList.splice(index, 1);
   }
 
 }
